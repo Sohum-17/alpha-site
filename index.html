@@ -1,10 +1,13 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
-<title>For My Rossu ❤️</title><style>
+<title>For My Rossu ❤️</title>
+
+<style>
 
 body{
 margin:0;
-font-family:'Segoe UI', sans-serif;
+font-family:'Segoe UI',sans-serif;
 background:linear-gradient(135deg,#ff758c,#ff7eb3);
 text-align:center;
 color:white;
@@ -12,24 +15,18 @@ overflow:hidden;
 }
 
 .container{
-margin-top:100px;
+margin-top:90px;
 padding:20px;
 }
 
 h1{
-font-size:52px;
-margin-bottom:10px;
-}
-
-h2{
-font-weight:normal;
-opacity:0.9;
+font-size:50px;
 }
 
 button{
-margin-top:30px;
-padding:15px 35px;
-font-size:20px;
+margin-top:20px;
+padding:14px 30px;
+font-size:18px;
 border:none;
 border-radius:40px;
 background:white;
@@ -42,22 +39,29 @@ button:hover{
 transform:scale(1.1);
 }
 
+#heart{
+font-size:60px;
+position:absolute;
+top:65%;
+left:45%;
+cursor:pointer;
+transition:0.3s;
+}
+
 #message{
 display:none;
-margin-top:40px;
-font-size:24px;
+margin-top:30px;
+font-size:22px;
 max-width:600px;
 margin-left:auto;
 margin-right:auto;
-line-height:1.6;
 }
 
 .heart{
 position:fixed;
 bottom:-20px;
-font-size:20px;
+font-size:22px;
 animation:float 7s linear infinite;
-opacity:0.9;
 }
 
 @keyframes float{
@@ -67,36 +71,73 @@ opacity:0.9;
 
 .footer{
 position:fixed;
-bottom:15px;
+bottom:10px;
 width:100%;
 font-size:18px;
-opacity:0.8;
 }
 
-</style></head><body><div class="container"><h1>I'm Sorry Rossu ❤️</h1><h2>You mean the world to me</h2><button onclick="showMessage()">Open My Heart</button>
+canvas{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+}
 
-<div id="message"><p>My dear Rossu,
+</style>
+</head>
 
-I just want to say something from my heart.
-I'm really sorry if I ever hurt you. That was never my intention.
+<body>
 
-You are one of the most beautiful parts of my life.
-Your smile, your voice, your presence — everything about you makes my world brighter.
+<div class="container">
 
-Even on ordinary days, you make life feel special.
+<h1>I'm Sorry Rossu ❤️</h1>
+<h2>You mean everything to me 😘</h2>
 
-I just want you to know one thing:
+<button onclick="showMessage()">Open My Heart 💌</button>
+<button onclick="surprise()">Surprise 🎁</button>
 
-<strong>I love you, Rossu. Always have, always will. ❤️</strong>
+<div id="message">
+<p>
 
-No matter what happens, you will always be someone very special to me.
+My dear Rossu ❤️  
 
-</p></div></div><div class="footer">
+I just want to say something from my heart.  
+I'm really sorry if I ever hurt you.  
+
+You are one of the most beautiful parts of my life.  
+Your smile, your voice, your presence makes my world brighter.  
+
+<strong>I love you Rossu ❤️ Always.</strong>  
+
+</p>
+</div>
+
+<h2>Catch my heart if you can 😜</h2>
+<div id="heart" onclick="moveHeart()">❤️</div>
+
+</div>
+
+<div class="footer">
 Made with love by Sohum ❤️
-</div><script>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<script>
 
 function showMessage(){
 document.getElementById("message").style.display="block";
+}
+
+function surprise(){
+alert("I LOVE YOU SO MUCH ROSSU ❤️😘");
+startConfetti();
+}
+
+function moveHeart(){
+let heart=document.getElementById("heart");
+heart.style.top=Math.random()*80+"%";
+heart.style.left=Math.random()*80+"%";
 }
 
 setInterval(function(){
@@ -114,5 +155,44 @@ setTimeout(()=>{heart.remove()},7000);
 
 },250);
 
-</script></body>
+const canvas=document.getElementById("confetti");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let pieces=[];
+
+function startConfetti(){
+for(let i=0;i<150;i++){
+pieces.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*8+2,
+speed:Math.random()*3+1
+});
+}
+
+animateConfetti();
+}
+
+function animateConfetti(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+pieces.forEach(p=>{
+ctx.fillStyle="white";
+ctx.fillRect(p.x,p.y,p.size,p.size);
+p.y+=p.speed;
+
+if(p.y>canvas.height){
+p.y=0;
+}
+});
+
+requestAnimationFrame(animateConfetti);
+}
+
+</script>
+
+</body>
 </html>
