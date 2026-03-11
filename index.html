@@ -1,0 +1,118 @@
+<!DOCTYPE html><html>
+<head>
+<title>For My Rossu ❤️</title><style>
+
+body{
+margin:0;
+font-family:'Segoe UI', sans-serif;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+.container{
+margin-top:100px;
+padding:20px;
+}
+
+h1{
+font-size:52px;
+margin-bottom:10px;
+}
+
+h2{
+font-weight:normal;
+opacity:0.9;
+}
+
+button{
+margin-top:30px;
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:40px;
+background:white;
+color:#ff4b7d;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+#message{
+display:none;
+margin-top:40px;
+font-size:24px;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.6;
+}
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:float 7s linear infinite;
+opacity:0.9;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-110vh)}
+}
+
+.footer{
+position:fixed;
+bottom:15px;
+width:100%;
+font-size:18px;
+opacity:0.8;
+}
+
+</style></head><body><div class="container"><h1>I'm Sorry Rossu ❤️</h1><h2>You mean the world to me</h2><button onclick="showMessage()">Open My Heart</button>
+
+<div id="message"><p>My dear Rossu,
+
+I just want to say something from my heart.
+I'm really sorry if I ever hurt you. That was never my intention.
+
+You are one of the most beautiful parts of my life.
+Your smile, your voice, your presence — everything about you makes my world brighter.
+
+Even on ordinary days, you make life feel special.
+
+I just want you to know one thing:
+
+<strong>I love you, Rossu. Always have, always will. ❤️</strong>
+
+No matter what happens, you will always be someone very special to me.
+
+</p></div></div><div class="footer">
+Made with love by Sohum ❤️
+</div><script>
+
+function showMessage(){
+document.getElementById("message").style.display="block";
+}
+
+setInterval(function(){
+
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"%";
+heart.style.fontSize=(Math.random()*25+15)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove()},7000);
+
+},250);
+
+</script></body>
+</html>
